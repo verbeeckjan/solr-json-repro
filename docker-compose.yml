@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  solr-old:
+      container_name: solr-old
+      image: "solr:8.11.0"
+      hostname: localhost
+      restart: always
+      ports:
+          - 8984:8984
+      environment:
+          SOLR_PORT: 8984
+          SOLR_HOST: solr-old
+          SOLR_HEAP:
+          SOLR_JAVA_MEM: -Xms1g -Xmx1g
+  solr-new:
+      container_name: solr-new
+      image: "solr:8.11.1"
+      hostname: localhost
+      restart: always
+      ports:
+          - 8985:8985
+      environment:
+          SOLR_PORT: 8985
+          SOLR_HOST: solr-new
+          SOLR_HEAP:
+          SOLR_JAVA_MEM: -Xms1g -Xmx1g
